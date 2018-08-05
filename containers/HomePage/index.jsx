@@ -1,11 +1,16 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
-import * as newsActionCreators from '../../actions/news';
-import NewsItem from '../news-item';
-import styles from './news-feed.scss';
+import NewsFeeds from '../../components/NewsFeeds';
+import * as newsActionCreators from './actions';
+import {
+  getNewsItems,
+  getCurrentPage,
+  getTotalPages,
+  getIsFetching,
+} from './selectors';
 
-class NewsFeed extends Component {
+class HomePage extends Component {
   static propTypes = {
     newsItems: PropTypes.array,
     totalPages: PropTypes.number,
@@ -27,9 +32,7 @@ class NewsFeed extends Component {
     fetchNewsItems();
   }
 
-  seeMore = event => {
-    event.preventDefault();
-
+  seeMore = () => {
     const { currentPage, fetchNewsItems } = this.props;
 
     fetchNewsItems({ page: currentPage + 1 });
@@ -41,26 +44,27 @@ class NewsFeed extends Component {
     } = this.props;
 
     return (
-      <div className={styles.newsFeed}>
-        {newsItems.map(item => (
-          <NewsItem className={styles.item} key={item.id} item={item} />
-        ))}
-        {!isFetching &&
-          currentPage < totalPages && (
-            <a className={styles.seeMore} href="#see-more" onClick={this.seeMore}>
-              See more...
-            </a>
-          )}
+      <div>
+        <NewsFeeds
+          newsItems={newsItems}
+          totalPages={totalPages}
+          currentPage={currentPage}
+          isFetching={isFetching}
+          onSeeMoreClick={this.seeMore}
+        />
       </div>
     );
   }
 }
 
 const mapStateToProps = state => ({
-  newsItems: state.newsItems.all,
-  totalPages: state.newsItems.totalPages,
-  currentPage: state.newsItems.currentPage,
-  isFetching: state.newsItems.isFetching,
+  newsItems: getNewsItems(state),
+  totalPages: getTotalPages(state),
+  currentPage: getCurrentPage(state),
+  isFetching: getIsFetching(state),
 });
 
-export default connect(mapStateToProps, newsActionCreators)(NewsFeed);
+export default connect(
+  mapStateToProps,
+  newsActionCreators,
+)(HomePage);

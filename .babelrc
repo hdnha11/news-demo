@@ -3,6 +3,7 @@
   "plugins": [
     "react-hot-loader/babel",
     "transform-class-properties",
-    "syntax-object-rest-spread"
+    "syntax-object-rest-spread",
+    "styled-components"
   ]
 }

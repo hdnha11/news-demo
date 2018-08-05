@@ -1,12 +1,16 @@
 import { camelizeKeys } from 'humps';
-import * as api from '../api';
-import * as types from './types';
+import * as api from '../../api';
+import {
+  FETCH_NEWS_ITEMS,
+  FETCH_NEWS_ITEMS_SUCCESS,
+  FETCH_NEWS_ITEMS_FAIL,
+} from './constants';
 
 const MAX_PAGES = 200;
 
 export const fetchNewsItems = params => dispatch => {
   dispatch({
-    type: types.FETCH_NEWS_ITEMS,
+    type: FETCH_NEWS_ITEMS,
   });
 
   return api.fetchNewsItems(params).then(
@@ -14,7 +18,7 @@ export const fetchNewsItems = params => dispatch => {
       const { docs: newsItems } = camelizeKeys(response.response);
 
       dispatch({
-        type: types.FETCH_NEWS_ITEMS_SUCCESS,
+        type: FETCH_NEWS_ITEMS_SUCCESS,
         newsItems,
         totalPages: MAX_PAGES,
         currentPage: (params && params.page) || 1,
@@ -22,7 +26,7 @@ export const fetchNewsItems = params => dispatch => {
     },
     error => {
       dispatch({
-        type: types.FETCH_NEWS_ITEMS_FAIL,
+        type: FETCH_NEWS_ITEMS_FAIL,
         message: error,
       });
     },

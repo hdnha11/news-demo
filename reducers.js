@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
-import newsItems from './news';
+import homePage from './containers/HomePage/reducer';
 
 export default combineReducers({
-  newsItems,
+  homePage,
 });

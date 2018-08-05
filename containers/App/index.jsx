@@ -1,9 +1,9 @@
 import React from 'react';
-import NewsFeed from './news-feed';
+import HomePage from '../HomePage';
 
 const App = () => (
   <div>
-    <NewsFeed newsItems={[]} />
+    <HomePage />
   </div>
 );
 
