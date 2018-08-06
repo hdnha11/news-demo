@@ -8,6 +8,10 @@ const FORMAT = 'MMM DD, YYYY';
 const Wrapper = styled.time`
   color: rgba(0, 0, 0, 0.54);
   font-size: 0.875rem;
+
+  @media (max-width: 767px) {
+    font-size: 0.75rem;
+  }
 `;
 
 const Date = ({ children }) => {

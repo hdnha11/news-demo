@@ -18,6 +18,16 @@ const Left = styled.div`
 const Right = styled.div`
   flex: 0 0 auto;
   width: 150px;
+
+  @media (max-width: 767px) {
+    width: 140px;
+    height: 140px;
+  }
+
+  @media (max-width: 503px) {
+    width: 80px;
+    height: 80px;
+  }
 `;
 
 const Title = styled.h3`
@@ -25,12 +35,20 @@ const Title = styled.h3`
   font-weight: 500;
   font-size: 1.25rem;
   cursor: pointer;
+
+  @media (max-width: 767px) {
+    font-size: 1rem;
+  }
 `;
 
 const Paragraph = styled.p`
   font-weight: 300;
   margin: 6px 0 12px 0;
   cursor: pointer;
+
+  @media (max-width: 767px) {
+    font-size: 0.875rem;
+  }
 `;
 
 const Source = styled.a`
@@ -42,11 +60,15 @@ const Source = styled.a`
   &:hover {
     text-decoration: underline;
   }
+
+  @media (max-width: 767px) {
+    font-size: 0.75rem;
+  }
 `;
 
 const Media = styled.img`
-  width: 150px;
-  height: 150px;
+  width: 100%;
+  height: 100%;
   cursor: pointer;
 `;
 
