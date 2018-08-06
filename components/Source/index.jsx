@@ -10,7 +10,7 @@ const Source = styled.a`
     text-decoration: underline;
   }
 
-  @media (max-width: 767px) {
+  @media (max-width: ${props => props.theme.sm}px) {
     font-size: 0.75rem;
   }
 `;

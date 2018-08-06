@@ -1,7 +1,9 @@
 import React from 'react';
 import { hot } from 'react-hot-loader';
-import styled, { injectGlobal } from 'styled-components';
+import styled, { injectGlobal, ThemeProvider } from 'styled-components';
+import Header from '../../components/Header';
 import HomePage from '../HomePage';
+import theme from '../../themes/default';
 
 injectGlobal`
   body {
@@ -15,14 +17,33 @@ injectGlobal`
 `;
 
 const Main = styled.div`
-  max-width: 1024px;
+  max-width: ${props => props.theme.maxContentWidth}px;
   margin: 0 auto;
 `;
 
+const Content = styled.div`
+  margin-top: ${props => props.theme.headerHeight}px;
+  padding-top: 32px;
+
+  @media (max-width: ${props => props.theme.sm}px) {
+    margin-top: ${props => props.theme.headerHeightSM}px;
+  }
+
+  @media (max-width: ${props => props.theme.xxs}px) {
+    margin-top: ${props => props.theme.headerHeightXXS}px;
+  }
+`;
+
 const App = () => (
-  <Main>
-    <HomePage />
-  </Main>
+  <ThemeProvider theme={theme}>
+    <Main>
+      <Header />
+
+      <Content>
+        <HomePage />
+      </Content>
+    </Main>
+  </ThemeProvider>
 );
 
 export default hot(module)(App);

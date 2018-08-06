@@ -7,7 +7,7 @@ const Paragraph = styled.p`
     cursor: pointer;
   `}
 
-  @media (max-width: 767px) {
+  @media (max-width: ${props => props.theme.sm}px) {
     font-size: 0.875rem;
   }
 `;
