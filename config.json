@@ -1,4 +1,5 @@
 {
   "API_HOST": "https://api.nytimes.com",
+  "API_KEY": "4c9458fc4bbd4ebea6ea9f1d7f665bdf",
   "MEDIA_HOST": "https://static01.nyt.com"
 }
