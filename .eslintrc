@@ -18,6 +18,12 @@
     "jsx-a11y/click-events-have-key-events": "off",
     "no-plusplus": ["error", {
       "allowForLoopAfterthoughts": true
+    }],
+    "no-unused-expressions": ["error", {
+      "allowTaggedTemplates": true
+    }],
+    "no-confusing-arrow": ["error", {
+      "allowParens": true
     }]
   }
 }

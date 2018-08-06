@@ -32,7 +32,7 @@ class HomePage extends Component {
     fetchNewsItems();
   }
 
-  seeMore = () => {
+  readMore = () => {
     const { currentPage, fetchNewsItems } = this.props;
 
     fetchNewsItems({ page: currentPage + 1 });
@@ -50,7 +50,7 @@ class HomePage extends Component {
           totalPages={totalPages}
           currentPage={currentPage}
           isFetching={isFetching}
-          onSeeMoreClick={this.seeMore}
+          onReadMoreClick={this.readMore}
         />
       </div>
     );
