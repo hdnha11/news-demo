@@ -2,8 +2,10 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 import Date from '../Date';
-
-const MEDIA_HOST = 'https://static01.nyt.com';
+import Title from '../Title';
+import Paragraph from '../Paragraph';
+import Source from '../Source';
+import { MEDIA_HOST } from '../../config.json';
 
 const Wrapper = styled.article`
   display: flex;
@@ -27,42 +29,6 @@ const Right = styled.div`
   @media (max-width: 503px) {
     width: 80px;
     height: 80px;
-  }
-`;
-
-const Title = styled.h3`
-  margin: 0;
-  font-weight: 500;
-  font-size: 1.25rem;
-  cursor: pointer;
-
-  @media (max-width: 767px) {
-    font-size: 1rem;
-  }
-`;
-
-const Paragraph = styled.p`
-  font-weight: 300;
-  margin: 6px 0 12px 0;
-  cursor: pointer;
-
-  @media (max-width: 767px) {
-    font-size: 0.875rem;
-  }
-`;
-
-const Source = styled.a`
-  display: block;
-  color: inherit;
-  font-size: 0.875rem;
-  text-decoration: none;
-
-  &:hover {
-    text-decoration: underline;
-  }
-
-  @media (max-width: 767px) {
-    font-size: 0.75rem;
   }
 `;
 

@@ -1,0 +1,4 @@
+{
+  "API_HOST": "https://api.nytimes.com",
+  "MEDIA_HOST": "https://static01.nyt.com"
+}

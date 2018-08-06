@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
+import PlaceholderLoading from '../PlaceholderLoading';
 import NewsItem from '../NewsItem';
 import Button from '../Button';
+import placeholderImage from '../../images/news-loading.svg';
 
 const Wrapper = styled.div`
   padding: 16px;
@@ -12,6 +14,11 @@ const ReadMore = styled.div`
   text-align: center;
 `;
 
+const LoadingImage = styled.img`
+  margin-bottom: 48px;
+  width: 100%;
+`;
+
 class NewsFeed extends Component {
   static propTypes = {
     newsItems: PropTypes.array,
@@ -19,6 +26,7 @@ class NewsFeed extends Component {
     currentPage: PropTypes.number,
     isFetching: PropTypes.bool,
     onReadMoreClick: PropTypes.func,
+    onItemClick: PropTypes.func,
   };
 
   static defaultProps = {
@@ -27,6 +35,7 @@ class NewsFeed extends Component {
     currentPage: 1,
     isFetching: false,
     onReadMoreClick: null,
+    onItemClick: null,
   };
 
   handleReadMoreClick = event => {
@@ -40,7 +49,11 @@ class NewsFeed extends Component {
   };
 
   handleItemClick = item => {
-    console.log(item);
+    const { onItemClick } = this.props;
+
+    if (onItemClick) {
+      onItemClick(item);
+    }
   };
 
   render() {
@@ -53,6 +66,12 @@ class NewsFeed extends Component {
         {newsItems.map(item => (
           <NewsItem key={item.id} item={item} onClick={this.handleItemClick} />
         ))}
+        {isFetching && (
+          <PlaceholderLoading>
+            <LoadingImage src={placeholderImage} alt="Loading" />
+            <LoadingImage src={placeholderImage} alt="Loading" />
+          </PlaceholderLoading>
+        )}
         {!isFetching &&
           currentPage < totalPages && (
             <ReadMore>

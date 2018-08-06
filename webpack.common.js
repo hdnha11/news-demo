@@ -25,6 +25,18 @@ module.exports = {
       {
         test: /\.css$/,
         use: ['style-loader', 'css-loader']
+      },
+      {
+        test: /\.(jpe?g|png|svg)(\?[a-z0-9#=&.]+)?$/,
+        include: /images/,
+        use: [
+          {
+            loader: 'file-loader',
+            options: {
+              name: 'images/[name]-[hash].[ext]'
+            }
+          }
+        ]
       }
     ]
   },

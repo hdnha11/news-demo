@@ -3,6 +3,8 @@ import {
   FETCH_NEWS_ITEMS,
   FETCH_NEWS_ITEMS_SUCCESS,
   FETCH_NEWS_ITEMS_FAIL,
+  SHOW_NEWS_ITEM,
+  CLOSE_NEWS_ITEM,
 } from './constants';
 
 const newsItems = (state = [], action) => {
@@ -69,12 +71,26 @@ const errorMessage = (state = null, action) => {
   }
 };
 
+const currentNewsItem = (state = null, action) => {
+  switch (action.type) {
+    case SHOW_NEWS_ITEM:
+      return action.newsItem;
+
+    case CLOSE_NEWS_ITEM:
+      return null;
+
+    default:
+      return state;
+  }
+};
+
 const homePage = combineReducers({
   newsItems,
   currentPage,
   totalPages,
   isFetching,
   errorMessage,
+  currentNewsItem,
 });
 
 export default homePage;
