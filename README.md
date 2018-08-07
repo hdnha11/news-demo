@@ -1,5 +1,7 @@
 # News Demo
 
+[Live Demo](https://nha-news-demo.herokuapp.com)
+
 ## Development
 
 ### Using Docker
@@ -61,7 +63,7 @@ $ docker image build -f Dockerfile.prod -t news-demo:v1 .
 #### Run the app
 
 ```
-$ docker container run -d -p 8080:80 news-demo:v1
+$ docker container run -d -p 8080:8080 -e PORT=8080 news-demo:v1
 ```
 
 Visit `localhost:8080` on your browser.
