@@ -9,7 +9,8 @@
     "lint": "eslint .",
     "test": "jest --coverage",
     "test:clean": "rimraf ./coverage",
-    "test:watch": "jest --watchAll"
+    "test:watch": "jest --watchAll",
+    "coveralls": "cat ./coverage/lcov.info | coveralls"
   },
   "author": "Nha Hoang",
   "license": "MIT",
@@ -36,6 +37,7 @@
     "babel-preset-env": "^1.7.0",
     "babel-preset-react": "^6.24.1",
     "clean-webpack-plugin": "^0.1.19",
+    "coveralls": "^3.0.2",
     "css-loader": "^0.28.11",
     "enzyme": "^3.3.0",
     "enzyme-adapter-react-16": "^1.1.1",
