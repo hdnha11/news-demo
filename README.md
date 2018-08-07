@@ -1,5 +1,18 @@
 # News Demo
 
+<div align="center">
+  <!-- Build Status -->
+  <a href="https://travis-ci.org/hdnha11/news-demo">
+    <img src="https://travis-ci.org/hdnha11/news-demo.svg" alt="Build Status" />
+  </a>
+  <!-- Test Coverage -->
+  <a href="https://coveralls.io/r/hdnha11/news-demo">
+    <img src="https://coveralls.io/repos/github/hdnha11/news-demo/badge.svg" alt="Test Coverage" />
+  </a>
+</div>
+
+<br />
+
 [Live Demo](https://nha-news-demo.herokuapp.com)
 
 ## Development
