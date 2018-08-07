@@ -1,6 +1,6 @@
 # News Demo
 
-<div align="center">
+<div align="left">
   <!-- Build Status -->
   <a href="https://travis-ci.org/hdnha11/news-demo">
     <img src="https://travis-ci.org/hdnha11/news-demo.svg" alt="Build Status" />
