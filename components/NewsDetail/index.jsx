@@ -1,28 +1,19 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
+import Wrapper from './Wrapper';
+import Media from './Media';
 import Date from '../Date';
 import Title from '../Title';
 import Paragraph from '../Paragraph';
 import Source from '../Source';
 import { MEDIA_HOST } from '../../config.json';
 
-const Wrapper = styled.article`
-  margin: 0;
-  padding: 0 32px 32px 32px;
-`;
-
-const Media = styled.img`
-  width: 100%;
-  margin: 36px 0 20px 0;
-`;
-
 const NewsDetail = ({ item }) => {
   const {
     headline, snippet, multimedia, pubDate, source, webUrl,
   } = item;
   const title = headline && headline.main;
-  const [media] = multimedia.filter(m => m.subtype === 'largeWidescreen1050');
+  const media = multimedia && multimedia.find(m => m.subtype === 'largeWidescreen1050');
 
   return (
     <Wrapper>

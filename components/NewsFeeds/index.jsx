@@ -1,23 +1,12 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import styled from 'styled-components';
 import PlaceholderLoading from '../PlaceholderLoading';
 import NewsItem from '../NewsItem';
 import Button from '../Button';
 import placeholderImage from '../../images/news-loading.svg';
-
-const Wrapper = styled.div`
-  padding: 16px;
-`;
-
-const ReadMore = styled.div`
-  text-align: center;
-`;
-
-const LoadingImage = styled.img`
-  margin-bottom: 48px;
-  width: 100%;
-`;
+import Wrapper from './Wrapper';
+import ReadMore from './ReadMore';
+import LoadingImage from './LoadingImage';
 
 class NewsFeed extends Component {
   static propTypes = {
