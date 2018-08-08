@@ -1,4 +1,6 @@
-# News Demo
+<img src="https://raw.githubusercontent.com/hdnha11/news-demo/master/images/logo.svg?sanitize=true" alt="Logo" align="center" />
+
+<br />
 
 <div align="left">
   <!-- Build Status -->
