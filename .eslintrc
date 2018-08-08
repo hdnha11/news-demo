@@ -8,6 +8,7 @@
   rules: {
     "import/no-unresolved": "off",
     "import/no-extraneous-dependencies": "off",
+    "import/no-named-as-default",
     "import/extensions": "off",
     "react/forbid-prop-types": "off",
     "react/no-did-mount-set-state": "off",
