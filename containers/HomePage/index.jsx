@@ -13,7 +13,7 @@ import {
   getCurrentNewsItem,
 } from './selectors';
 
-class HomePage extends Component {
+export class HomePage extends Component {
   static propTypes = {
     newsItems: PropTypes.array,
     totalPages: PropTypes.number,

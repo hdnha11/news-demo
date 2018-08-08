@@ -1,6 +1,8 @@
 import React from 'react';
 import { hot } from 'react-hot-loader';
-import styled, { injectGlobal, ThemeProvider } from 'styled-components';
+import { injectGlobal, ThemeProvider } from 'styled-components';
+import Main from './Main';
+import Content from './Content';
 import Header from '../../components/Header';
 import HomePage from '../HomePage';
 import theme from '../../themes/default';
@@ -13,24 +15,6 @@ injectGlobal`
     font-size: 16px;
     line-height: 20px;
     color: rgba(0, 0, 0, 0.84);
-  }
-`;
-
-const Main = styled.div`
-  max-width: ${props => props.theme.maxContentWidth}px;
-  margin: 0 auto;
-`;
-
-const Content = styled.div`
-  margin-top: ${props => props.theme.headerHeight}px;
-  padding-top: 32px;
-
-  @media (max-width: ${props => props.theme.sm}px) {
-    margin-top: ${props => props.theme.headerHeightSM}px;
-  }
-
-  @media (max-width: ${props => props.theme.xxs}px) {
-    margin-top: ${props => props.theme.headerHeightXXS}px;
   }
 `;
 
