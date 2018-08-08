@@ -73,6 +73,22 @@ describe('<NewsFeed />', () => {
     expect(newsItems.get(1).props.item).toEqual(props.newsItems[1]);
   });
 
+  it('should not throw if click on item but callback is undefined', () => {
+    props.newsItems = [{
+      id: 1,
+      headline: { main: 'Title' },
+      snippet: 'Snippet #1',
+      multimedia: undefined,
+      pubDate: '2018-06-01T00:00:00+0000',
+      source: 'Source #1',
+      webUrl: 'fake-url-1',
+    }];
+    const newsItem = newsFeed().find(NewsItem).first();
+    const itemTitle = newsItem.find(Title).first();
+
+    itemTitle.simulate('click');
+  });
+
   it('should handle click on item', () => {
     props.onItemClick = jest.fn();
     props.newsItems = [{
@@ -127,6 +143,15 @@ describe('<NewsFeed />', () => {
     props.totalPages = 11;
 
     expect(newsFeed().find(ReadMore).length).toEqual(0);
+  });
+
+  it('should not throw if click on read more button but callback is undefined', () => {
+    props.isFetching = false;
+    props.currentPage = 10;
+    props.totalPages = 11;
+    const readMoreBtn = newsFeed().find(ReadMore).find(Button).first();
+
+    readMoreBtn.simulate('click');
   });
 
   it('should handle click on read more button', () => {

@@ -113,6 +113,12 @@ describe('<NewsItem />', () => {
     expect(media.first().props().src).toBe(`${MEDIA_HOST}/${url}`);
   });
 
+  it('should not throw if click on snippet but callback is undefined', () => {
+    const snippet = newsItem().find(Paragraph).first();
+
+    snippet.simulate('click');
+  });
+
   it('should handle click event on snippet', () => {
     props.onClick = jest.fn();
     const snippet = newsItem().find(Paragraph).first();
